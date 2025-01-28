@@ -54,9 +54,12 @@
                     </header>
 
                     <main class="mt-4">
-                        <div class="card border">
-                            <div class="card-body text-center bg-white">
-                                <h65>welcome to new project Test git and github</h65>
+                        <div class="card border  text-center bg-white">
+                            <div class="card-header">
+                                <h4>Test Git</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>welcome to new project Test git and github</p>
                             </div>
                         </div>
                     </main>
