@@ -23,12 +23,12 @@ class CarAbstractFactor
     public function createBMWCar(): BMWCar
     {
        $pmw_car = new BMWCar($this->price);
-        return "Price BMW :{$pmw_car}";
+        return $pmw_car;
     }
     public function createBenzCar(): BenzCar
     {
        $benz_car = new BenzCar($this->price,$this->tax);
-        return "Price Benz Car :{$benz_car}";
+        return $benz_car;
     }
 }
 
