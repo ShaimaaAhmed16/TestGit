@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\HostController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
@@ -14,12 +16,21 @@ Route::post('/category/create',[CategoryController::class,'store']);
 Route::put('/category/update/{id}',[CategoryController::class,'update']);
 Route::delete('/category/delete/{id}',[CategoryController::class,'delete']);
 Route::get('/category/sum/',[CategoryController::class,'sum']);
+Route::middleware(['tenants'])->group(function () {
+    Route::get('/host/index', [HostController::class, 'index'])->name('host');
+    Route::get('/host/category/index',[CategoryController::class,'viewAll'])->name('categoriesWithLogin');
 
+});
+
+Route::middleware(['tenants','verified'])->group(function () {
+    Route::get('/dashboard', function () {
+//        dd(\DB::connection()->getDatabaseName());
+        return view('dashboard');
+    })->name('dashboard');
+});
+//->middleware(['tenants','auth', 'verified'])->name('dashboard');
 Auth::routes();
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+//Route::middleware('auth')->group(function () {});
 Route::middleware('auth')->group(function () {
     Route::get('/categoriesWithLogin',[CategoryController::class,'viewAll']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
