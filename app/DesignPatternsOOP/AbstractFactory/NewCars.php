@@ -6,7 +6,7 @@
  * Time: 10:27 PM
  */
 
-namespace App\ClassAbstract;
+namespace App\DesignPatternsOOP\AbstractFactory;
 
 
 interface NewCars

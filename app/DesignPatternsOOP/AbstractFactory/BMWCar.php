@@ -6,7 +6,7 @@
  * Time: 10:31 PM
  */
 
-namespace App\ClassAbstract;
+namespace App\DesignPatternsOOP\AbstractFactory;
 
 
 class BMWCar implements NewCars

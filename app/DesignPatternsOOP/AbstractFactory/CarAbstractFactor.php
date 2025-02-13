@@ -7,7 +7,7 @@
  */
 //php app/ClassAbstract/CarAbstractFactor.php
 
-namespace App\ClassAbstract;
+namespace App\DesignPatternsOOP\AbstractFactory;
 
 
 class CarAbstractFactor
